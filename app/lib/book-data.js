@@ -51,5 +51,5 @@ const books = [
       },
   ];
 
-  module.exports = { users, books };
+ export default books;
   
