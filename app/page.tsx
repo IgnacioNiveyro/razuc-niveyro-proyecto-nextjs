@@ -5,10 +5,7 @@ export default function Home() {
   return (
     <div>
       <TopNav />
-      <div className="mt-[15%]">
-        <Carrusel />
-      </div>
+      <Carrusel />
     </div>
   );
 }
-

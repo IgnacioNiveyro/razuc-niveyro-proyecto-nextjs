@@ -3,16 +3,17 @@ import React from 'react';
 import books from '@/app/lib/book-data';
 
 export default function Carrusel() {
+  const topNavHeight = 152; // Altura total del TopNav (50px * 3 secciones + 2px por las dos líneas <hr>)
+
   return (
-    <div className="carrusel-container">
+    <div 
+      className="carrusel-container" 
+      style={{ marginTop: `${topNavHeight}px`, backgroundColor: '#F8F4E1' }} // Ajuste del margen superior
+    >
       <div className="carrusel">
         {Array.isArray(books) && books.map((book) => (
           <div key={book.id} className="book">
-            <h3>{book.title}</h3>
-            <p>{book.author}</p>
-            <p>{book.publication_year}</p>
-            <p>{book.genre}</p>
-            <p>${book.price}</p>
+            <img src={book.image} alt={book.title} className="book-image" />
           </div>
         ))}
       </div>
@@ -20,19 +21,40 @@ export default function Carrusel() {
         .carrusel-container {
           overflow: hidden;
           width: 100%;
+          height: 300px; /* Altura explícita para el contenedor del carrusel */
+          padding: 10px 0;
         }
+
+        @media (max-width: 768px) {
+          .carrusel-container {
+            margin-top: ${topNavHeight}px; /* Ajuste proporcional para pantallas más pequeñas */
+          }
+        }
+
         .carrusel {
           display: flex;
-          animation: scroll 20s linear infinite;
+          animation: scroll 15s linear infinite;
+          height: 100%;
+          align-items: center;
         }
         .book {
           flex: 0 0 auto;
           width: 200px;
           margin: 0 10px;
           padding: 20px;
-          background-color: #f9f5e6;
-          border: 1px solid #ccc;
+          background-color: transparent; /* Fondo transparente */
+          border: none; /* Sin bordes */
           border-radius: 5px;
+          box-shadow: none; /* Sin sombras */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .book-image {
+          max-width: 180px;
+          max-height: 240px; /* Ajusta la altura máxima de la imagen */
+          border-radius: 5px;
+          border: 1px solid #3B2C35; /* Agrega un borde a las imágenes */
         }
         @keyframes scroll {
           0% {

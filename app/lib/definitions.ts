@@ -12,5 +12,6 @@ export type Book = {
     author: string;
     publication_year: number;
     genre: string;
+    image: string;
   };
   

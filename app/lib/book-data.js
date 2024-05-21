@@ -16,6 +16,7 @@ const books = [
       publication_year: 1960,
       genre: 'Fiction',
       price: 10.99,
+      image: '/books/book0.jpg'
     },
     {
       id: '1',
@@ -24,6 +25,7 @@ const books = [
       publication_year: 1949,
       genre: 'Dystopian',
       price: 8.99,
+      image: '/books/book1.jpg'
     },
     {
       id: '2',
@@ -32,6 +34,7 @@ const books = [
       publication_year: 1925,
       genre: 'Classic',
       price: 12.99,
+      image: '/books/book2.jpg'
     },
     {
       id: '3',
@@ -40,6 +43,7 @@ const books = [
       publication_year: 1967,
       genre: 'Magical Realism',
       price: 9.99,
+      image: '/books/book3.jpg'
     },
     {
         id: '4',
@@ -48,6 +52,7 @@ const books = [
         publication_year: 1895,
         genre: 'Science fiction',
         price: 15.99,
+        image: '/books/book4.jpg'
       },
   ];
 
