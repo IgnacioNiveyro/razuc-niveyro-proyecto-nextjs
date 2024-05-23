@@ -3,12 +3,11 @@ import React from 'react';
 import books from '@/app/lib/book-data';
 
 export default function Carrusel() {
-  const topNavHeight = 152; // Altura total del TopNav (50px * 3 secciones + 2px por las dos líneas <hr>)
 
   return (
     <div 
       className="carrusel-container" 
-      style={{ marginTop: `${topNavHeight}px`, backgroundColor: '#F8F4E1' }} // Ajuste del margen superior
+      
     >
       <div className="carrusel">
         {Array.isArray(books) && books.map((book) => (
@@ -27,7 +26,7 @@ export default function Carrusel() {
 
         @media (max-width: 768px) {
           .carrusel-container {
-            margin-top: ${topNavHeight}px; /* Ajuste proporcional para pantallas más pequeñas */
+             /* Ajuste proporcional para pantallas más pequeñas */
           }
         }
 

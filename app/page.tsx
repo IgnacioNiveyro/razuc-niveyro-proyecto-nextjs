@@ -1,11 +1,9 @@
-import TopNav from '@/app/ui/topnav';
+import Cards from '@/app/ui/cards';
 import Carrusel from '@/app/ui/carrusel';
-
-export default function Home() {
+export default function Page() {
   return (
-    <div>
-      <TopNav />
-      <Carrusel />
+    <div className="bg-[#F8F4E1]">
     </div>
+
   );
 }
