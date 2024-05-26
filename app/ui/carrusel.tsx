@@ -1,6 +1,5 @@
 'use client';
-import React from 'react';
-import books from '@/app/lib/book-data';
+const { books } = require ('@/app/lib/book-data');
 
 export default function Carrusel() {
 

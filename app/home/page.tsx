@@ -1,10 +1,10 @@
-import Cards from '@/app/ui/cards';
+import CardWrapper from '@/app/ui/cards';
 import Carrusel from '@/app/ui/carrusel';
-export default function Layout(){
+export default function Page() {
     return (
         <div>
-            <Carrusel/>
-            <Cards/>
+            <Carrusel />
+            <CardWrapper />
         </div>
     );
 }

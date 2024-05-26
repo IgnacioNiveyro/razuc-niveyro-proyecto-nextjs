@@ -4,3 +4,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-div {
+    width: 280px;
+    height: 440px;
+    background-color: #ddd8be;
+  }
+  
