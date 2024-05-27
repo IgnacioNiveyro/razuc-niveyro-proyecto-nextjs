@@ -5,7 +5,7 @@ import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
 import {
     User,
-    Book,
+    Book
   } from './definitions';
 import axios from 'axios';
 
