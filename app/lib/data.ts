@@ -24,10 +24,9 @@ export async function fetchBooks(){
 export async function fetchBestSellers() {
   const options = {
     method: 'GET',
-    url: 'https://all-books-api.p.rapidapi.com/getBooks',
+    url: 'https://6633d986f7d50bbd9b4ae187.mockapi.io/api/book',
     headers: {
-      'X-RapidAPI-Key': 'b61bae5c69mshcc2148da90091cfp195af5jsn79546f00b6dd',
-      'X-RapidAPI-Host': 'all-books-api.p.rapidapi.com'
+      'content-type':'application/json'
     }
   };
 
@@ -38,12 +37,14 @@ export async function fetchBestSellers() {
       author: book.bookAuthor,
       image_src: book.bookImage,
       description: book.bookDescription,
-      rank: book.bookRank
+      rank: book.bookRank,
+      price: book.price,
+      review: book.review
     }));
     return books;
   } catch (error) {
     console.error('Failed to fetch books:', error);
-    return []; // Retornar array vacío en caso de error
+    return [];
   }
 }
 
