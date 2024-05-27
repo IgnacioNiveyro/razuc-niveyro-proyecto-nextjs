@@ -3,20 +3,20 @@ import { robotoSlab } from '@/app/ui/fonts';
 import { Card, CardHeader, CardBody, Image, CardFooter, Button } from "@nextui-org/react";
 import CounterButton from '@/app/ui/counterButton'
 import StarRating from '@/scripts/StarRating'
-export default async function CardWrapper() {
+export default async function CardWrapperBestSellers() {
   const books = await fetchBestSellers();
   return (
     <div className="flex pt-4 justify-center">
     <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-6">
       {books.map((book: { title: string; author: string; image_src: string; description: string; rank: number; price: number; review: number; }) => (
-        <Cards title={book.title} author={book.author} image_src={book.image_src} description = {book.description} rank = {book.rank} price = {book.price} review = {book.review}/>
+        <CardsBestSellers title={book.title} author={book.author} image_src={book.image_src} description = {book.description} rank = {book.rank} price = {book.price} review = {book.review}/>
       ))}
     </div>
     </div>
   );
 }
 
-export function Cards({
+export function CardsBestSellers({
   title,
   author,
   image_src,
