@@ -23,6 +23,17 @@ const CounterButton: React.FC<CounterButtonProps> = ({ initialValue = 0 }) => {
 
   return (
     <div>
+        <Button 
+        onClick={handleDecrement}
+        className="text-tiny text-black bg-black/20" 
+        variant="flat" 
+        color="default" 
+        radius="lg" 
+        size="sm"
+      >
+        -
+      </Button>
+      <span className="text-tiny text-black bg-black/20 flat bg-transparent px-3" >{count}</span>
       <Button 
         onClick={handleIncrement}
         className="text-tiny text-black bg-black/20" 
@@ -32,17 +43,6 @@ const CounterButton: React.FC<CounterButtonProps> = ({ initialValue = 0 }) => {
         size="sm"
       >
         +
-      </Button>
-      <span className="text-tiny text-black bg-black/20 flat bg-transparent px-3" >{count}</span>
-      <Button 
-        onClick={handleDecrement}
-        className="text-tiny text-black bg-black/20" 
-        variant="flat" 
-        color="default" 
-        radius="lg" 
-        size="sm"
-      >
-        -
       </Button>
     </div>
   );

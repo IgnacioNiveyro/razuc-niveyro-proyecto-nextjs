@@ -25,7 +25,9 @@ export default function TopNav() {
       {/* Inicio de la segunda sección */}
       <div className="flex justify-between items-center w-full" style={{ paddingLeft: '15%', paddingRight: '15%' }}>
         <div className="pr-5 flex-grow flex justify-start">
+        <Link href="/home">
           <BookitLogo />
+        </Link>
         </div>
         <div className="px-5 py-3 flex-grow flex justify-center">
           <Search placeholder="Buscar..." />
