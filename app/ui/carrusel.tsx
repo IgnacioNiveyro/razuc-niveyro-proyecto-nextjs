@@ -31,7 +31,7 @@ export default function Carrusel() {
 
         .carrusel {
           display: flex;
-          animation: scroll 15s linear infinite;
+          animation: scroll 25s linear infinite;
           height: 100%;
           align-items: center;
         }
