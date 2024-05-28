@@ -5,7 +5,8 @@ import { sql } from '@vercel/postgres';
 import { unstable_noStore as noStore } from 'next/cache';
 import {
     User,
-    Book
+    Book,
+    BookBS
   } from './definitions';
 import axios from 'axios';
 
@@ -21,7 +22,7 @@ export async function fetchBooks(){
     }
 }
 
-export async function fetchBestSellers() {
+export async function fetchBestSellers(): Promise<BookBS[]> {
   const options = {
     method: 'GET',
     url: 'https://6633d986f7d50bbd9b4ae187.mockapi.io/api/book',
@@ -32,14 +33,14 @@ export async function fetchBestSellers() {
 
   try {
     const response = await axios.request(options);
-    const books = response.data.map(book => ({
-      title: book.bookTitle,
-      author: book.bookAuthor,
-      image_src: book.bookImage,
-      description: book.bookDescription,
-      rank: book.bookRank,
-      price: book.price,
-      review: book.review
+    const books: BookBS[] = response.data.map((bookData: any): BookBS => ({
+      title: bookData.bookTitle,
+      author: bookData.bookAuthor,
+      image_src: bookData.bookImage,
+      description: bookData.bookDescription,
+      ranking: bookData.bookRank,
+      price: bookData.price,
+      review: bookData.review
     }));
     return books;
   } catch (error) {
@@ -47,5 +48,6 @@ export async function fetchBestSellers() {
     return [];
   }
 }
+
 
   

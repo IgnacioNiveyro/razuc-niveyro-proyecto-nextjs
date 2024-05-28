@@ -9,8 +9,8 @@ export default async function CardWrapperBestSellers() {
   return (
     <div className="flex pt-4 justify-center">
     <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-6">
-      {books.map((book: { title: string; author: string; image_src: string; description: string; rank: number; price: number; review: number; }) => (
-        <CardsBestSellers title={book.title} author={book.author} image_src={book.image_src} description = {book.description} rank = {book.rank} price = {book.price} review = {book.review}/>
+      {books.map(BookBS => (
+        <CardsBestSellers title={BookBS.title} author={BookBS.author} image_src={BookBS.image_src} description = {BookBS.description} rank = {BookBS.ranking} price = {BookBS.price} review = {BookBS.review}/>
       ))}
     </div>
     </div>

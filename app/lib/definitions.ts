@@ -16,3 +16,12 @@ export type Book = {
     image: string;
   };
   
+  export type BookBS = {
+    title: string;
+    author: string;
+    price: number; 
+    image_src: string;
+    description: string;
+    review: number;
+    ranking: number;
+  };
