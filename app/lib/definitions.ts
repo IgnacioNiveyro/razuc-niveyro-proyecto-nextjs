@@ -25,3 +25,7 @@ export type Book = {
     review: number;
     ranking: number;
   };
+
+  export type premiereBook = {
+    image: string;
+  }

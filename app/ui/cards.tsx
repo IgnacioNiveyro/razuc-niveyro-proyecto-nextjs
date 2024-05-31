@@ -7,7 +7,7 @@ export default async function CardWrapper() {
   const books = await fetchBooks();
   return (
     <div className="flex justify-center">
-    <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-6">
+    <div className="grid gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6">
       {books.map(book => (
         <Cards title={book.title} author={book.author} publication_year={book.publication_year} price={book.price} image_src={book.image} />
       ))}

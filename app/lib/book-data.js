@@ -146,9 +146,31 @@ const books = [
   }
 ];
 
+const premiereBooks = [
+  {
+    image: '/premiere_books/premiere0.jpg'
+  },
+  {
+    image: '/premiere_books/premiere1.jpg'
+  },
+  {
+    image: '/premiere_books/premiere2.jpg'
+  },
+  {
+    image: '/premiere_books/premiere3.jpg'
+  },
+  {
+    image: '/premiere_books/premiere4.jpg'
+  },
+  {
+    image: '/premiere_books/premiere5.jpg'
+  },
+
+]
 
 
 module.exports = {
   users,
   books,
+  premiereBooks,
 };

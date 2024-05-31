@@ -4,19 +4,17 @@ import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import {
-  NextButton,
-  PrevButton,
   usePrevNextButtons
 } from './EmblaCarouselArrowButtons'
 import Image from 'next/image';
-
+import { premiereBook } from '../lib/definitions'
+const { premiereBooks } = require('@/app/lib/book-data');
 type PropType = {
-  slides: number[]
   options?: EmblaOptionsType
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props
+  const { options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     AutoScroll({ playOnInit: true })
   ])
@@ -54,25 +52,32 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   }, [emblaApi])
 
+  const slides: JSX.Element[] = premiereBooks.map((book: premiereBook, index: number) => (
+    <Image
+      key={index}
+      src={book.image}
+      alt={`Premiere Book ${index}`}
+      width={160}
+      height={220}
+      style={{ border: '1px solid black' }}
+    />
+  ));
+
   return (
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((index) => (
+          {slides.map((slide, index) => (
             <div className="embla__slide" key={index}>
               <div className="embla__slide__number">
-                <div className="bg-red-500 border border-black">
-                  <p>{index + 1}</p>
-                </div>
+                {slide}
               </div>
             </div>
           ))}
         </div>
       </div>
-
-
     </div>
-  )
+  );
 }
 
 export default EmblaCarousel
