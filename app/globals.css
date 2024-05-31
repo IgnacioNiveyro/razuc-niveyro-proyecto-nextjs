@@ -6,33 +6,30 @@
 @tailwind utilities;
 
 .custom-div {
-    width: 280px;
     height: 440px;
     background-color: #ddd8be;
   }
 
   .embla {
+    --slide-spacing: 0.5rem; /* Reducir espaciado entre slides */
     box-sizing: border-box;
     max-width: 100%;
     margin: auto;
     --slide-height: 19rem;
-    --slide-spacing: 1rem;
     --slide-size: 600px;
   }
   .embla__viewport {
     overflow: hidden;
   }
   .embla__container {
-    backface-visibility: hidden;
     display: flex;
-    touch-action: pan-y pinch-zoom;
-    margin-left: calc(var(--slide-spacing) * -1);
-  }
-  .embla__slide {
-    flex: 0 0 25%;
-    min-width: 0;
-    padding-left: var(--slide-spacing);
-  }
+    flex-wrap: nowrap; /* Asegúrate de que los slides no se envuelvan */
+}
+.embla__slide {
+  flex: 0 0 15%; /* Establece un porcentaje que se adapte al número de slides visibles */
+  min-width: 250px; /* Asegura un ancho mínimo para cada slide */
+  margin-right: var(--slide-spacing); /* Espacio entre slides */
+}
   .embla__slide__number {
     box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
     border-radius: 1.8rem;

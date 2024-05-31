@@ -165,6 +165,12 @@ const premiereBooks = [
   {
     image: '/premiere_books/premiere5.jpg'
   },
+  {
+    image: '/premiere_books/premiere6.jpg'
+  },
+  {
+    image: '/premiere_books/premiere7.jpg'
+  },
 
 ]
 
