@@ -46,16 +46,44 @@ export function CardsSkeleton() {
     )
 }
 
-export function EmblaSkeleton() {
+export function ImagesSkeleton(){
     return (
-        <div className={`${shimmer} embla`}>
-          <div className="embla__viewport">
-            <div className="embla__container">
-              
-            </div>
-          </div>
+      <div className="embla__slide__number" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ marginRight: '50px' }}>
+          <Image
+            src={""}
+            alt={``}
+            width={160}
+            height={220}
+            style={{ border: '1px solid black' }}
+          />
+        </div>
+      </div>
+    )
+  }
+  
+  
+  export function EmblaSkeleton() {
+    return (
+      <div className={`${shimmer} embla`}>
+        <div className={`${shimmer} embla__viewport`}>
+          <div className={`${shimmer} embla__container`}>
+          <div className={`${shimmer} embla__slide__number`}>
+                <Image
+                  key={""}
+                  src={""}
+                  width={160}
+                  height={220}
+                  style={{ border: '1px solid black' }}
+                />
+        </div>
+        </div>
+        </div>
         </div>
     );
-}
+  }
+  
+  
+  
 
 

@@ -14,6 +14,7 @@ export type Book = {
     genre: string;
     price: number;
     image: string;
+    ranking: number;
   };
   
   export type BookBS = {
@@ -27,5 +28,6 @@ export type Book = {
   };
 
   export type premiereBook = {
+    id: string;
     image: string;
   }

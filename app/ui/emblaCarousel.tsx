@@ -13,55 +13,41 @@ type PropType = {
   options?: EmblaOptionsType
 }
 
-const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { options } = props
+const EmblaCarousel: React.FC<PropType & { slides: premiereBook[] }> = (props) => {
+  const { options, slides } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     AutoScroll({ playOnInit: true })
-  ])
-  const [isPlaying, setIsPlaying] = useState(false)
+  ]);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick
-  } = usePrevNextButtons(emblaApi)
+  } = usePrevNextButtons(emblaApi);
 
   const onButtonAutoplayClick = useCallback(
     (callback: () => void) => {
-      const autoScroll = emblaApi?.plugins()?.autoScroll
-      if (!autoScroll) return
+      const autoScroll = emblaApi?.plugins()?.autoScroll;
+      if (!autoScroll) return;
 
       const resetOrStop = true;
 
-      callback()
+      callback();
     },
     [emblaApi]
-  )
+  );
 
   const toggleAutoplay = useCallback(() => {
-    const autoScroll = emblaApi?.plugins()?.autoScroll
-    if (!autoScroll) return
-
-  }, [emblaApi])
+    const autoScroll = emblaApi?.plugins()?.autoScroll;
+    if (!autoScroll) return;
+  }, [emblaApi]);
 
   useEffect(() => {
-    const autoScroll = emblaApi?.plugins()?.autoScroll
-    if (!autoScroll) return
-
-
-  }, [emblaApi])
-
-  const slides: JSX.Element[] = premiereBooks.map((book: premiereBook, index: number) => (
-    <Image
-      key={index}
-      src={book.image}
-      alt={`Premiere Book ${index}`}
-      width={160}
-      height={220}
-      style={{ border: '1px solid black' }}
-    />
-  ));
+    const autoScroll = emblaApi?.plugins()?.autoScroll;
+    if (!autoScroll) return;
+  }, [emblaApi]);
 
   return (
     <div className="embla">
@@ -70,7 +56,14 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           {slides.map((slide, index) => (
             <div className="embla__slide" key={index}>
               <div className="embla__slide__number">
-                {slide}
+                <Image
+                  key={index}
+                  src={slide.image}
+                  alt={`Premiere Book ${index}`}
+                  width={160}
+                  height={220}
+                  style={{ border: '1px solid black' }}
+                />
               </div>
             </div>
           ))}
@@ -78,6 +71,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       </div>
     </div>
   );
-}
+};
+
 
 export default EmblaCarousel
