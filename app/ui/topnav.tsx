@@ -3,6 +3,7 @@ import FavoriteLogo from '@/app/ui/favoritelogo';
 import CartLogo from '@/app/ui/cartlogo';
 import Search from "./search";
 import Link from 'next/link'
+import { Suspense } from 'react';
 
 export default function TopNav() {
   return (
@@ -30,7 +31,8 @@ export default function TopNav() {
         </Link>
         </div>
         <div className="px-5 py-3 flex-grow flex justify-center">
-          <Search placeholder="Buscar..." />
+          <Suspense><Search placeholder="Buscar..." /></Suspense>
+          
         </div>
         <div className="pl-5 flex-grow flex justify-end space-x-10 mr-3">
           <Link href="/home/favorites">
