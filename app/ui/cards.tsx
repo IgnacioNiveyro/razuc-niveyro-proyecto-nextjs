@@ -1,10 +1,22 @@
-import { fetchBooks } from '@/app/lib/data'
+import { fetchBooks, fetchFilteredBooks } from '@/app/lib/data'
 import { robotoSlab } from '@/app/ui/fonts';
 import { Card, CardHeader, CardBody, Image, CardFooter, Button } from "@nextui-org/react";
 import CounterButton from '@/app/ui/counterButton'
 import StarRating from '@/scripts/StarRating'
-export default async function CardWrapper() {
-  const books = await fetchBooks();
+export default async function CardWrapper({
+  query,
+  currentPage,
+}: {
+  query: string;
+  currentPage: number;
+}) {
+  var books;
+  if(query==''){
+    books = await fetchBooks(currentPage);
+  }else{
+    books = await fetchFilteredBooks(query, currentPage);
+  }
+
   return (
     <div className="flex justify-center">
     <div className="grid gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6">

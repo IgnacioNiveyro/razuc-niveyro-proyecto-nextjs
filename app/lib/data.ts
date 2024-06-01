@@ -10,14 +10,19 @@ import {
   premiereBook
 } from './definitions';
 import axios from 'axios';
-
-export async function fetchBooks() {
+const ITEMS_PER_PAGE = 6;
+export async function fetchBooks(
+  currentPage:number,
+) {
   noStore();
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
   try {
-    console.log('Tiempo hardcodeado para ver animación');
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log('Fetching books..');
-    const data = await sql<Book>`SELECT * FROM library.books`;
+    const data = await sql<Book>`
+    SELECT
+     * 
+    FROM 
+      library.books 
+    LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`;
     return data.rows;
   } catch (error) {
     console.log('Database Error: ', error);
@@ -25,15 +30,65 @@ export async function fetchBooks() {
   }
 }
 
-export async function fetchPremiereBooks() {
+export async function fetchFilteredBooks(
+  query: string,
+  currentPage: number,
+) {
   noStore();
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
   try {
-    
+    const data = await sql<Book> `
+    SELECT
+      * 
+    FROM 
+      library.books
+    WHERE
+      title ILIKE ${`%${query}%`} OR
+      author ILIKE ${`%${query}%`} OR
+      publication_year::text ILIKE ${`%${query}%`} OR
+      genre::text ILIKE ${`%${query}%`} OR
+      price::text ILIKE ${`%${query}%`}
+    ORDER BY publication_year DESC
+    LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    `;
     console.log('Tiempo hardcodeado para ver animación');
     await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log('Fetching premiere books..');
+    return data.rows;
+  } catch (error) {
+    console.log('Database Error: ', error);
+    throw new Error('Failed to fetch filtered books data');
+  }
+}
 
+export async function fetchBooksPage(query:string){
+  noStore();
+  try{
+    const count = await sql`SELECT COUNT(*)
+    FROM library.books
+    WHERE
+    title ILIKE ${`%${query}%`} OR
+    author ILIKE ${`%${query}%`} OR
+    publication_year::text ILIKE ${`%${query}%`} OR
+    price::text ILIKE ${`%${query}%`}
+  `;
+
+    const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
+    return totalPages;
+
+  }catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch total number of books.');
+  }
+}
+
+export async function fetchPremiereBooks() {
+  noStore();
+  try {
     const data = await sql<premiereBook>`SELECT * FROM library.PremiereBooks`
+    console.log('Tiempo hardcodeado para ver animación');
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log('Fetching premiere books..');
     return data.rows;
   } catch (error) {
     console.log('Database Error: ', error);
@@ -67,5 +122,3 @@ export async function fetchBestSellers(): Promise<BookBS[]> {
     return [];
   }
 }
-
-
