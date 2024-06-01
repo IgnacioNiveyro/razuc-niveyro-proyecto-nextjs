@@ -15,7 +15,7 @@ export async function fetchBooks() {
   noStore();
   try {
     console.log('Tiempo hardcodeado para ver animación');
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log('Fetching books..');
     const data = await sql<Book>`SELECT * FROM library.books`;
     return data.rows;
@@ -30,7 +30,7 @@ export async function fetchPremiereBooks() {
   try {
     
     console.log('Tiempo hardcodeado para ver animación');
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log('Fetching premiere books..');
 
     const data = await sql<premiereBook>`SELECT * FROM library.PremiereBooks`
