@@ -17,13 +17,13 @@ function StarRating({ rating }) {
   return (
     <div className="flex">
       {Array(fullStars).fill().map((_, i) => (
-        <span key={`full-${i}`} className="text-yellow-500">★</span>
+        <span key={`full-${i}`} className="text-black-500">★</span>
       ))}
       {halfStar && (
-        <span className="text-yellow-500">✬</span> // Representa la media estrella
+        <span className="text-black-500">✬</span> // Representa la media estrella
       )}
       {Array(emptyStars).fill().map((_, i) => (
-        <span key={`empty-${i}`} className="text-gray-300">☆</span>
+        <span key={`empty-${i}`} className="text-black-500">☆</span>
       ))}
     </div>
   );
