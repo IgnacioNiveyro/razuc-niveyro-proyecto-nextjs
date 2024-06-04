@@ -8,7 +8,7 @@ import {
 } from './EmblaCarouselArrowButtons'
 import Image from 'next/image';
 import { premiereBook } from '../lib/definitions'
-const { premiereBooks } = require('@/app/lib/book-data');
+
 type PropType = {
   options?: EmblaOptionsType
 }

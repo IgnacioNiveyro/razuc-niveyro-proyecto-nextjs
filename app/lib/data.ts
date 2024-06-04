@@ -10,7 +10,7 @@ import {
   premiereBook
 } from './definitions';
 import axios from 'axios';
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 12;
 export async function fetchBooks(
   currentPage:number,
 ) {
@@ -96,7 +96,7 @@ export async function fetchPremiereBooks() {
   }
 }
 
-export async function fetchBestSellers(): Promise<BookBS[]> {
+export async function fetchBestSellers(): Promise<premiereBook[]> {
   const options = {
     method: 'GET',
     url: 'https://6633d986f7d50bbd9b4ae187.mockapi.io/api/book',
@@ -107,14 +107,9 @@ export async function fetchBestSellers(): Promise<BookBS[]> {
 
   try {
     const response = await axios.request(options);
-    const books: BookBS[] = response.data.map((bookData: any): BookBS => ({
-      title: bookData.bookTitle,
-      author: bookData.bookAuthor,
-      image_src: bookData.bookImage,
-      description: bookData.bookDescription,
-      ranking: bookData.bookRank,
-      price: bookData.price,
-      review: bookData.review
+    const books: premiereBook[] = response.data.map((bookData: any): premiereBook => ({
+      id: bookData.bookIsbn,
+      image: bookData.bookImage,
     }));
     return books;
   } catch (error) {

@@ -21,7 +21,7 @@ export default async function CardWrapper({
     <div className="flex justify-center">
     <div className="grid gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6">
       {books.map(book => (
-        <Cards title={book.title} author={book.author} publication_year={book.publication_year} price={book.price} image_src={book.image} />
+        <Cards title={book.title} author={book.author} publication_year={book.publication_year} price={book.price} image_src={book.image} ranking={book.ranking} />
       ))}
     </div>
     </div>
@@ -34,12 +34,14 @@ export function Cards({
   publication_year,
   price,
   image_src,
+  ranking
 }: {
   title: string;
   author: string;
   publication_year: number;
   price: number;
   image_src: string;
+  ranking: number;
 }) {
 
 
@@ -58,7 +60,8 @@ export function Cards({
           height={220}
           style={{ width: '160px', height: '220px', objectFit: 'contain' }}
         />
-        <StarRating rating={4.5} />
+        <StarRating rating={ranking} />
+        <span className="ml-2 text-sm font-medium text-black-500">{ranking.toFixed(1)}</span>
       </CardBody>
       <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
         <p className="text-tiny text-black/80">{price}</p>

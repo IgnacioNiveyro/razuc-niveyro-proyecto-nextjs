@@ -65,18 +65,6 @@ export default function TopNav() {
               >
                 Home
               </Link>
-              <Link
-                href="/home/discounts"
-                className="block p-2 rounded hover:bg-[#B7B7A4]"
-              >
-                Discounts!
-              </Link>
-              <Link
-                href="/home/best-sellers"
-                className="block p-2 rounded hover:bg-[#B7B7A4]"
-              >
-                Best Sellers
-              </Link>
               {/* Puedes agregar más categorías aquí */}
             </ul>
           </nav>
