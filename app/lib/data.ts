@@ -7,10 +7,26 @@ import {
   User,
   Book,
   BookBS,
-  premiereBook
+  premiereBook,
+  BookForm
 } from './definitions';
 import axios from 'axios';
 const ITEMS_PER_PAGE = 12;
+export async function fetchAllBooks(){
+  noStore();
+  try{
+    const data = await sql<Book>`
+    SELECT
+     * 
+    FROM 
+      library.books 
+    `;
+    return data.rows;
+  }catch (error) {
+    console.log('Database Error: ', error);
+    throw new Error('Failed to fetch all books data for adding a new book');
+  }
+}
 export async function fetchBooks(
   currentPage:number,
 ) {
@@ -115,5 +131,30 @@ export async function fetchBestSellers(): Promise<premiereBook[]> {
   } catch (error) {
     console.error('Failed to fetch books:', error);
     return [];
+  }
+}
+
+export async function fetchBookById(id: string) {
+  noStore();
+  try {
+    const data = await sql<BookForm>`
+      SELECT
+        library.books.id,
+        library.books.title,
+        library.books.price
+      FROM library.books
+      WHERE id = ${id};
+    `;
+
+    const book = data.rows.map((book) => ({
+      ...book,
+      // Convert amount from cents to dollars
+      price: book.price / 100,
+    }));
+
+    return book[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch invoice.');
   }
 }

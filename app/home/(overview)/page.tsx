@@ -4,7 +4,6 @@ import { CardsSkeleton, EmblaSkeleton } from '@/app/ui/skeletons';
 import EmblaCarouselWrap from '@/app/ui/CarouselWrapper'
 import { fetchBooksPage } from '@/app/lib/data'
 import Pagination from '@/app/ui/pagination';
-
 export default async function Page({
     searchParams,
 }: {

@@ -31,3 +31,14 @@ export type Book = {
     id: string;
     image: string;
   }
+
+  export type BookForm = {
+    id: string;
+    title: string;
+    author: string;
+    publication_year: number;
+    genre: string;
+    price: number;
+    image: string;
+    ranking: number;
+  };
