@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { UpdateBook, DeleteBook } from '@/app/ui/buttons';
 import { fetchFilteredBooks } from '@/app/lib/data';
-import { formatCurrency }   from '@/app/lib/utils';
+
 
 export default async function BooksTable({
   query,
@@ -38,10 +38,7 @@ export default async function BooksTable({
                   </div>
                 </div>
                 <div className="flex w-full items-center justify-between pt-4">
-                  <div className="flex justify-end gap-2">
-                    <UpdateBook id={book.id} />
-                    <DeleteBook id={book.id} />
-                  </div>
+                  
                 </div>
               </div>
             ))}

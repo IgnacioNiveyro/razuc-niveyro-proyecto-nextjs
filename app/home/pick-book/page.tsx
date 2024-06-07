@@ -1,4 +1,3 @@
-import Form from '@/app/ui/create-form';
 import Pagination from '@/app/ui/pagination';
 import Breadcrumbs from '@/app/ui/breadcrumbs';
 import { fetchAllBooks } from '@/app/lib/data';
@@ -31,7 +30,7 @@ export default async function Page({
           },
           {
             label: 'Edit Book',
-            href: '/home/edit',
+            href: '/home/pick-book',
             
           },
         ]}

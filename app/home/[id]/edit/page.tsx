@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           { label: 'Books', href: '/home' },
           {
             label: 'Edit Book',
-            href: `/home/${id}/edit`,
+            href: `/home/${id}/pick-book`,
           
           },
         ]}

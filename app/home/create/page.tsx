@@ -15,7 +15,7 @@ export default async function Page() {
           },
           {
             label: 'Edit Book',
-            href: '/home/edit',
+            href: '/home/pick-book',
             
           },
         ]}
