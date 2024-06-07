@@ -16,8 +16,12 @@ const FormSchema = z.object({
   });
 
   const CreateBook = FormSchema.omit({ id: true });
+
+export async function printear(){
+  console.log("printeo.");
+}
 export async function createBook(formData: FormData) {
-    const { title, author, publication_year, genre, price, image, ranking } = CreateBook.parse({
+  const { title, author, publication_year, genre, price, image, ranking } = CreateBook.parse({
         title: formData.get('title'),
         author: formData.get('author'),
         publication_year: formData.get('publication_year'),
@@ -33,12 +37,15 @@ export async function createBook(formData: FormData) {
             ON CONFLICT (id) DO NOTHING;
           `
     revalidatePath('/home');
-    redirect('/home');
+    redirect('/home'); 
+    
 }
 
 const UpdateBook = FormSchema.omit({ id: true, author: true, title: true, publication_year: true, genre: true, ranking: true  });
 
 export async function updateBook(id: string, formData: FormData) {
+  
+
   const { price, image } = UpdateBook.parse({
     price: formData.get('price'),
     image: formData.get('image'),
@@ -52,6 +59,7 @@ export async function updateBook(id: string, formData: FormData) {
  
   revalidatePath('/home');
   redirect('/home');
+  
   }
 
 export async function deleteBook(id: string) {

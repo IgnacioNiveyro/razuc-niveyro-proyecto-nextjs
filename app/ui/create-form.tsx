@@ -1,15 +1,11 @@
-import { Book } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
 import { createBook } from '@/app/lib/actions';
 import {
-  CheckIcon,
-  ClockIcon,
   CurrencyDollarIcon,
-  UserCircleIcon,
 } from '@heroicons/react/24/outline';
 
-export default function Form({books}:{books: Book[]}) {
+export default function Form() {
   return (
     <form action={createBook}>
       <div className="rounded-md bg-[#F8F4E1] p-4 md:p-6">

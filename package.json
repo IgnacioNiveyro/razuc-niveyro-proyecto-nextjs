@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node app/api/server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node app/api/server.js",
+    "dev": "next dev",
+    "start": "next start",
     "lint": "next lint",
     "seed": "node -r dotenv/config ./scripts/seed.js"
   },

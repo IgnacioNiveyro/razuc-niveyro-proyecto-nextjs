@@ -1,8 +1,8 @@
 import Form from '@/app/ui/create-form';
-import { fetchAllBooks } from '@/app/lib/data';
+import { printear } from '@/app/lib/actions';
 import Breadcrumbs from '@/app/ui/breadcrumbs';
 export default async function Page() {
-  const books = await fetchAllBooks();
+  const test = await printear();
   return (
     <main>
         <Breadcrumbs
@@ -20,7 +20,7 @@ export default async function Page() {
           },
         ]}
       />
-      <Form books={books} />
+      <Form />
     </main>
   );
 }
