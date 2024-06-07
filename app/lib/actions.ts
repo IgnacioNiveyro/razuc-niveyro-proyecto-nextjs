@@ -17,9 +17,6 @@ const FormSchema = z.object({
 
   const CreateBook = FormSchema.omit({ id: true });
 
-export async function printear(){
-  console.log("printeo.");
-}
 export async function createBook(formData: FormData) {
   const { title, author, publication_year, genre, price, image, ranking } = CreateBook.parse({
         title: formData.get('title'),
@@ -45,6 +42,7 @@ const UpdateBook = FormSchema.omit({ id: true, author: true, title: true, public
 
 export async function updateBook(id: string, formData: FormData) {
   
+  console.log("en updatebook el id es: ",id);
 
   const { price, image } = UpdateBook.parse({
     price: formData.get('price'),
