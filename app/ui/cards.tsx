@@ -24,8 +24,8 @@ export default async function CardWrapper({
         <AdminCard />
         {
 
-          books.map(book => (
-            <Cards title={book.title} author={book.author} publication_year={book.publication_year} price={book.price} image_src={book.image} ranking={book.ranking} />
+          books.map((book,index) => (
+            <Cards key={index} title={book.title} author={book.author} publication_year={book.publication_year} price={book.price} image_src={book.image} ranking={book.ranking} />
           ))
 
         }

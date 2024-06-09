@@ -34,12 +34,9 @@ export function CardSkeleton() {
 export function CardsSkeleton() {
   return (
     <div className="flex justify-center grid gap-6 sm:grid-cols-3 lg:grid-cols-6">
-      <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
+      {[...Array(6)].map((_, index) => (
+        <CardSkeleton key={index} /> // Añadir prop key aquí
+      ))}
     </div>
   )
 }
@@ -64,7 +61,7 @@ export function EmblaSkeleton() {
       <div className="embla__viewport">
         <div className="embla__container">
         {slides.map((slide, index) => (
-          <div className="embla__slide">
+          <div className="embla__slide" key={index}>
             <div className="embla__slide__number">
               <ImageEmbla/>
             </div>
