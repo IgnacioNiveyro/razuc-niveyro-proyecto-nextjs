@@ -11,9 +11,9 @@ const GlobalError = ({ error, reset }: { error: Error; reset: () => void }) => {
   }, [error]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#F8F4E1]">
       <Image
-        src="/premiere_books/premiere1.jpg" // Asegúrate de tener una imagen 404 en la carpeta public/images
+        src="/404.png" // Asegúrate de tener una imagen 404 en la carpeta public/images
         alt="Page Not Found"
         width={500}
         height={500}
