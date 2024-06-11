@@ -13,7 +13,7 @@ const GlobalError = ({ error, reset }: { error: Error; reset: () => void }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#F8F4E1]">
       <Image
-        src="/404.png" // Asegúrate de tener una imagen 404 en la carpeta public/images
+        src="/404.png" 
         alt="Page Not Found"
         width={500}
         height={500}

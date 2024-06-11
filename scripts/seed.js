@@ -134,7 +134,6 @@ async function main() {
     await createSchema(client);
     await seedUsers(client);
     await seedBooks(client);
-    await seedPremiereBooks(client);
 
     await client.end();
   }

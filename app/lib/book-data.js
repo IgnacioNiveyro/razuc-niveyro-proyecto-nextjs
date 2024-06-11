@@ -16,7 +16,7 @@ const books = [
     publication_year: 1960,
     genre: 'Fiction',
     price: 10.99,
-    image: '/books/book0.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138748/book0_cisumi.webp',
     ranking: 3
   },
   {
@@ -26,7 +26,7 @@ const books = [
     publication_year: 1949,
     genre: 'Dystopian',
     price: 8.99,
-    image: '/books/book1.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138747/book1_gscufb.jpg',
     ranking: 4
   },
   {
@@ -36,7 +36,7 @@ const books = [
     publication_year: 1925,
     genre: 'Classic',
     price: 12.99,
-    image: '/books/book2.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138750/book2_hnb5tk.jpg',
     ranking: 4.5
   },
   {
@@ -46,7 +46,7 @@ const books = [
     publication_year: 1967,
     genre: 'Magical Realism',
     price: 9.99,
-    image: '/books/book3.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138755/book3_ir8o46.jpg',
     ranking: 5
   },
   {
@@ -56,7 +56,7 @@ const books = [
     publication_year: 1895,
     genre: 'Science fiction',
     price: 15.99,
-    image: '/books/book4.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138756/book4_unzqzd.jpg',
     ranking: 3.5
   },
   {
@@ -66,7 +66,7 @@ const books = [
     publication_year: 1813,
     genre: 'Romance',
     price: 10.99,
-    image: '/books/book5.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138758/book5_hauv8p.jpg',
     ranking: 3.1
   },
   {
@@ -76,7 +76,7 @@ const books = [
     publication_year: 1932,
     genre: 'Dystopian',
     price: 14.99,
-    image: '/books/book6.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138761/book6_qiovkh.jpg',
     ranking: 3
   },
   {
@@ -86,7 +86,7 @@ const books = [
     publication_year: 1951,
     genre: 'Fiction',
     price: 13.99,
-    image: '/books/book7.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138765/book7_fnepvq.png',
     ranking: 4.9
   },
   {
@@ -96,7 +96,7 @@ const books = [
     publication_year: 1937,
     genre: 'Fantasy',
     price: 11.99,
-    image: '/books/book8.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138766/book8_n0cmha.jpg',
     ranking: 4.5
   },
   {
@@ -106,7 +106,7 @@ const books = [
     publication_year: 1953,
     genre: 'Dystopian',
     price: 12.99,
-    image: '/books/book9.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138769/book9_e2qe5b.jpg',
     ranking: 4.2
   },
   {
@@ -116,7 +116,7 @@ const books = [
     publication_year: 1869,
     genre: 'Historical Fiction',
     price: 19.99,
-    image: '/books/book10.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138770/book10_zefj7u.jpg',
     ranking: 5
   },
   {
@@ -126,7 +126,7 @@ const books = [
     publication_year: 1866,
     genre: 'Philosophical Fiction',
     price: 16.99,
-    image: '/books/book11.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138773/book11_vecsox.jpg',
     ranking: 2.8
   },
   {
@@ -136,7 +136,7 @@ const books = [
     publication_year: 1614,
     genre: 'Epic',
     price: 14.99,
-    image: '/books/book12.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138774/book12_e25nzd.jpg',
     ranking: 2
   },
   {
@@ -146,7 +146,7 @@ const books = [
     publication_year: 1856,
     genre: 'Literary Realism',
     price: 13.99,
-    image: '/books/book13.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138778/book13_vm9beb.jpg',
     ranking: 3
   },
   {
@@ -156,50 +156,73 @@ const books = [
     publication_year: 1320,
     genre: 'Epic Poetry',
     price: 18.99,
-    image: '/books/book14.jpg',
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718138778/book14_g4ohqr.jpg',
     ranking: 1.5
+  },
+  {
+    id: '27be8a88-2177-4bab-8096-0bb5c0fc9991',
+    title: 'Cuentos Clásicos Para Conocerte Mejor',
+    author: 'Jorge Bucay',
+    publication_year: 2017,
+    genre: 'autoayuda',
+    price: 10.00,
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718139000/book20_ntcgw5.jpg',
+    ranking: 4
+  },
+  {
+    id: 'efd2b1c4-ea02-48d8-825b-9ba42d0be9c7',
+    title: 'El juego del Ángel',
+    author: 'Carlos Ruiz Záfon',
+    publication_year: 2008,
+    genre: 'Novela',
+    price: 12.99,
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718139002/book15_b5u6hk.jpg',
+    ranking: 5
+  },
+  {
+    id: 'a235a7bd-dbb2-4ca3-8a3d-b48c8c729c28',
+    title: 'El prisionero del cielo',
+    author: 'Carlos Ruiz Záfon',
+    publication_year: 2010,
+    genre: 'Novela',
+    price: 13.99,
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718139004/book16_trlfcq.jpg',
+    ranking: 5
+  },
+  {
+    id: '2afa3546-2b40-41b3-aca6-9486a795e47b',
+    title: 'La Sombra Del Viento',
+    author: 'Carlos Ruiz Záfon',
+    publication_year: 2012,
+    genre: 'Novela',
+    price: 15.99,
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718139006/book17_au7oyc.jpg',
+    ranking: 5
+  },
+  {
+    id: 'dc8d84d6-9f57-4679-bb70-7fca634597b3',
+    title: 'El Duelo',
+    author: 'Gabriel Rolón',
+    publication_year: 2015,
+    genre: 'autoayuda',
+    price: 12.99,
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718139009/book18_rs9o6k.webp',
+    ranking: 4
+  },
+  {
+    id: '7c7d1aaa-65e1-4f20-a36e-11e7bafd88e9',
+    title: 'La Felicidad',
+    author: 'Gabriel Rolón',
+    publication_year: 2018,
+    genre: 'autoayuda',
+    price: 18.99,
+    image: 'https://res.cloudinary.com/drgrglui9/image/upload/v1718139012/book19_fokaqt.jpg',
+    ranking: 3.5
   }
+
 ];
-
-const premiereBooks = [
-  {
-    id: '0fa7010c-3164-42ca-b4f0-4b7a114eac81',
-    image: '/premiere_books/premiere0.jpg'
-  },
-  {
-    id: '80475bc8-fbb5-4ce6-a1e1-ad1a0a7de948',
-    image: '/premiere_books/premiere1.jpg'
-  },
-  {
-    id: '5a50d2f7-ff1d-4f97-bc8c-30f740777e2d',
-    image: '/premiere_books/premiere2.jpg'
-  },
-  {
-    id: '1b8f40e3-1e03-4ffe-bb4a-dce3cbca234a',
-    image: '/premiere_books/premiere3.jpg'
-  },
-  {
-    id: '8e18aa18-3303-4ffd-bd72-4b5318329e45',
-    image: '/premiere_books/premiere4.jpg'
-  },
-  {
-    id: '85f4fb6b-20a5-45a9-a9dd-ff8f81ca3ef9',
-    image: '/premiere_books/premiere5.jpg'
-  },
-  {
-    id: 'e03d759f-564e-4e80-8c2d-9054d9721754',
-    image: '/premiere_books/premiere6.jpg'
-  },
-  {
-    id: 'b753ee47-c7b2-4c57-9c1c-ea354d80fdf1',
-    image: '/premiere_books/premiere7.jpg'
-  },
-
-]
-
 
 module.exports = {
   users,
   books,
-  premiereBooks,
 };

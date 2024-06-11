@@ -1,5 +1,11 @@
+import Image from 'next/image'
 export default function CartLogo() {
     return (
-        <img src="/cart.png" alt="Logo" className="h-10 w-10" />
+        <Image
+            src="/cart.png"
+            alt="Logo"
+            width={10}
+            height={15}
+        />
     );
 }

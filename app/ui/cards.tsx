@@ -5,6 +5,7 @@ import CounterButton from '@/app/ui/counterButton'
 import StarRating from '@/scripts/StarRating'
 import Link from 'next/link';
 import { Book } from '../lib/definitions';
+
 export default async function CardWrapper({
   query,
   currentPage,
@@ -40,6 +41,7 @@ export default async function CardWrapper({
         books.map((book, index) => (
           index === 0 ? (
             <AdminCard
+              key={book.id}
               title={book.title}
               image_src={book.image}
             />
