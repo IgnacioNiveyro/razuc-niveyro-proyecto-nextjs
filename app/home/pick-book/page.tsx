@@ -4,6 +4,7 @@ import { fetchAllBooks } from '@/app/lib/data';
 import { Suspense } from 'react';
 import { fetchBooksPage } from '@/app/lib/data';
 import Table from '@/app/ui/table';
+import { BooksTableSkeleton } from '@/app/ui/skeletons';
 export default async function Page({
   searchParams,
 }: {
@@ -35,7 +36,7 @@ export default async function Page({
           },
         ]}
       />
-      {  <Suspense key={query + currentPage}>
+      {  <Suspense key={query + currentPage} fallback={<BooksTableSkeleton/>}>
         <Table query={query} currentPage={currentPage} />
       </Suspense> }
       <div className="mt-5 flex w-full justify-center">

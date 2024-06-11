@@ -6,8 +6,8 @@ import { useFormState } from 'react-dom';
 import {
   CurrencyDollarIcon,
 } from '@heroicons/react/24/outline';
-
-export default function Form() {
+import { Book } from '@/app/lib/definitions';
+export default function Form({books}:{books: Book[]}) {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createBook, initialState);
 
