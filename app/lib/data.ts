@@ -11,7 +11,7 @@ import {
   BookForm
 } from './definitions';
 import axios from 'axios';
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 11;
 export async function fetchAllBooks(){
   noStore();
   try{

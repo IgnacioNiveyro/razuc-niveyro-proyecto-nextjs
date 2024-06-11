@@ -1,135 +1,185 @@
+'use client';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
 import { createBook } from '@/app/lib/actions';
+import { useFormState } from 'react-dom';
 import {
   CurrencyDollarIcon,
 } from '@heroicons/react/24/outline';
 
 export default function Form() {
+  const initialState = { message: null, errors: {} };
+  const [state, dispatch] = useFormState(createBook, initialState);
+
   return (
-    <form action={createBook}>
+    <form action={dispatch}>
       <div className="rounded-md bg-[#F8F4E1] p-4 md:p-6">
-        {/* title */}
+        {/* Title */}
         <div className="mb-4">
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
+          <label htmlFor="title" className="mb-2 block text-sm font-medium">
             Title
           </label>
           <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="title"
-                name="title"
-                type="string"
-                step="0.01"
-                placeholder="Enter Book title"
-                className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              />
-            </div>
+            <input
+              id="title"
+              name="title"
+              placeholder="Enter Book title"
+              className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              aria-describedby="title-error"
+            />
           </div>
-        </div>
-        {/* author */}
-        <div className="mb-4">
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-            Author
-          </label>
-          <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="author"
-                name="author"
-                type="string"
-                placeholder="Enter Book author"
-                className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              />
-            </div>
-          </div>
-        </div>
-        {/* publication_year */}
-        <div className="mb-4">
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-          Publication Year
-          </label>
-          <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="publication_year"
-                name="publication_year"
-                type="number"
-                placeholder="Enter Book publication year"
-                className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              />
-            </div>
-          </div>
-        </div>
-        {/* genre */}
-        <div className="mb-4">
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-          Genre
-          </label>
-          <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="genre"
-                name="genre"
-                type="string"
-                placeholder="Enter Book publication year"
-                className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              />
-            </div>
-          </div>
-        </div>
-        {/* image */}
-        <div className="mb-4">
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-          image
-          </label>
-          <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="image"
-                name="image"
-                type="string"
-                placeholder="Enter Book image"
-                className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              />
-            </div>
-          </div>
-        </div>
-        {/* price */}
-        <div className="mb-4">
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
-            Price
-          </label>
-          <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="price"
-                name="price"
-                type="number"
-                step="0.01"
-                placeholder="Enter USD amount"
-                className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              />
-              <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
-            </div>
+          <div id="title-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.title && state.errors.title.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
           </div>
         </div>
 
-        {/* ranking */}
+        {/* Author */}
         <div className="mb-4">
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium">
+          <label htmlFor="author" className="mb-2 block text-sm font-medium">
+            Author
+          </label>
+          <div className="relative mt-2 rounded-md">
+            <input
+              id="author"
+              name="author"
+              type="text"
+              placeholder="Enter Book author"
+              className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              aria-describedby="author-error"
+            />
+          </div>
+          <div id="author-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.author && state.errors.author.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Publication Year */}
+        <div className="mb-4">
+          <label htmlFor="publication_year" className="mb-2 block text-sm font-medium">
+            Publication Year
+          </label>
+          <div className="relative mt-2 rounded-md">
+            <input
+              id="publication_year"
+              name="publication_year"
+              type="number"
+              placeholder="Enter Book publication year"
+              className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              aria-describedby="publication_year-error"
+            />
+          </div>
+          <div id="publication_year-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.publication_year && state.errors.publication_year.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Genre */}
+        <div className="mb-4">
+          <label htmlFor="genre" className="mb-2 block text-sm font-medium">
+            Genre
+          </label>
+          <div className="relative mt-2 rounded-md">
+            <input
+              id="genre"
+              name="genre"
+              type="text"
+              placeholder="Enter Book genre"
+              className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              aria-describedby="genre-error"
+            />
+          </div>
+          <div id="genre-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.genre && state.errors.genre.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Image */}
+        <div className="mb-4">
+          <label htmlFor="image" className="mb-2 block text-sm font-medium">
+            Image
+          </label>
+          <div className="relative mt-2 rounded-md">
+            <input
+              id="image"
+              name="image"
+              type="text"
+              placeholder="Enter Book image"
+              className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              aria-describedby="image-error"
+            />
+          </div>
+          <div id="image-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.image && state.errors.image.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Price */}
+        <div className="mb-4">
+          <label htmlFor="price" className="mb-2 block text-sm font-medium">
+            Price
+          </label>
+          <div className="relative mt-2 rounded-md">
+            <input
+              id="price"
+              name="price"
+              type="number"
+              step="0.01"
+              placeholder="Enter USD amount"
+              className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              aria-describedby="price-error"
+            />
+            <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+          </div>
+          <div id="price-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.price && state.errors.price.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Ranking */}
+        <div className="mb-4">
+          <label htmlFor="ranking" className="mb-2 block text-sm font-medium">
             Star rating
           </label>
           <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="ranking"
-                name="ranking"
-                type="number"
-                placeholder="Enter Star rating"
-                className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              />
-            </div>
+            <input
+              id="ranking"
+              name="ranking"
+              type="number"
+              placeholder="Enter Star rating"
+              className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              aria-describedby="ranking-error"
+            />
+          </div>
+          <div id="ranking-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.ranking && state.errors.ranking.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
           </div>
         </div>
       </div>
