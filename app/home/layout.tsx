@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <TopNav />
       </div>
       <div>{children}</div>
-      <div className='pt-8'><Footer/></div>
+      <div className='pt-8 mb-0'><Footer/></div>
     </div>
   );
 }

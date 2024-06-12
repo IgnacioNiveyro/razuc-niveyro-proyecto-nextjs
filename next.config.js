@@ -9,6 +9,11 @@ module.exports = {
         hostname: 'storage.googleapis.com',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '**',
+      }
     ],
   },
   async redirects() {
