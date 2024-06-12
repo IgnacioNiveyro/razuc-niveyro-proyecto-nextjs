@@ -129,6 +129,15 @@ export function Cards({
         <span className="ml-2 text-sm font-medium text-black-500">{ranking.toFixed(1)}</span>
       </CardBody>
       <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+      <Button>
+          <Image
+            alt="Add To Cart"
+            src="/cart.png"
+            width={24}
+            height={24}
+            style={{ objectFit: 'contain', borderRadius: '0' }}
+          />
+        </Button>
         <p className="text-tiny text-black/80">{price}</p>
         <CounterButton initialValue={0} />
       </CardFooter>

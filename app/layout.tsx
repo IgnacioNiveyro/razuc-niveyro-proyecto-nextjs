@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { robotoSlab } from '@/app/ui/fonts';
-import TopNav from '@/app/ui/topnav'; // Importa el componente TopNav aquí
+import {StoreProvider} from '@/redux/StoreProvider'
 
 export const metadata: Metadata = {
   title: "Bookit",
@@ -16,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-[#F8F4E1] ${robotoSlab.className} antialiased`}>
+        <StoreProvider>
         {children}
+        </StoreProvider>
       </body>
     </html>
   );
