@@ -5,6 +5,8 @@ import CounterButton from '@/app/ui/counterButton'
 import StarRating from '@/scripts/StarRating'
 import Link from 'next/link';
 import { Book } from '../lib/definitions';
+import { auth } from "@/auth"
+
 
 export default async function CardWrapper({
   query,
@@ -31,15 +33,26 @@ export default async function CardWrapper({
     ranking: 0
   };
 
-  books.unshift(adminBook);
-
+  const session = await auth()
+  const isLoggedIn = !!session?.user;
+  var esAdmin: boolean = false;
+  
+  if(isLoggedIn){
+    books.unshift(adminBook);
+    esAdmin = true;
+  }
+  else{
+    esAdmin = false;
+  }
+    
+  
   return (
     <div className="flex justify-center">
       <div className="grid gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6">
       
       {
         books.map((book, index) => (
-          index === 0 ? (
+          index === 0 && esAdmin ? (
             <AdminCard
               key={book.id}
               title={book.title}

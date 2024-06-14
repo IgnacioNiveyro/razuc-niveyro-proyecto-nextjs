@@ -4,24 +4,32 @@ import CartLogo from '@/app/ui/cartlogo';
 import Search from "./search";
 import Link from 'next/link'
 import { Suspense } from 'react';
+import { signOut } from '@/auth';
+import { PowerIcon } from '@heroicons/react/24/outline';
 
 export default function TopNav() {
   return (
     <div className="w-full bg-gradient-to-b from-[#F8F4E1] to-[#E8E1C4] text-[#3B2C35]">
       {/* Inicio de la primera sección */}
-      <div className="flex justify-end items-center w-full" style={{ paddingLeft: '15%', paddingRight: '15%' }}>
-        <div className="mt-1 mb-1"> {/* Agregar espacio encima y debajo */}
-          <Link
-            href="/login"
-            className="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-black bg-beige rounded-lg border border-black hover:bg-beige focus:ring-4 focus:outline-none focus:bg-beige dark:bg-beige dark:hover:bg-black-100 dark:focus:bg-beige"
-          >
-            Log in
-          </Link>
-        </div>
-      </div>
-
-      {/* Fin de la primera sección */}
-      <hr style={{ border: 'none', borderTop: '1px solid black', width: '70%', marginLeft: '15%', marginRight: '15%' }} />
+  <div className="flex justify-end items-center w-full space-x-2" style={{ paddingLeft: '15%', paddingRight: '15%', marginBottom: '10px'}}>
+    <Link
+      href="/login"
+      className="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-black bg-beige rounded-lg border border-black hover:bg-beige focus:ring-4 focus:outline-none focus:bg-beige dark:bg-beige dark:hover:bg-black-100 dark:focus:bg-beige mt-3"
+    >
+      Log in
+    </Link>
+    <form action={async () => {
+      'use server';
+      await signOut();
+    }}>
+      <button className="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-black bg-beige rounded-lg border border-black hover:bg-beige focus:ring-4 focus:outline-none focus:bg-beige dark:bg-beige dark:hover:bg-black-100 dark:focus:bg-beige mt-3">
+        <PowerIcon className="w-4" />
+        Sign Out
+      </button>
+    </form>
+  </div>
+  {/* Fin de la primera sección */}
+  <hr style={{ border: 'none', borderTop: '1px solid black', width: '70%', marginLeft: '15%', marginRight: '15%', marginTop: '10px' }} />
 
       {/* Inicio de la segunda sección */}
       <div className="flex justify-between items-center w-full" style={{ paddingLeft: '15%', paddingRight: '15%' }}>
