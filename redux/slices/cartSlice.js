@@ -1,3 +1,5 @@
+// /app/cartSlice.js
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -10,12 +12,12 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       console.log('addToCart action dispatched:', action.payload);
-      const { productId, quantity, price } = action.payload;
+      const { productId, quantity, price, author, publication_year, image_src } = action.payload;
       const indexProductId = state.cartItems.findIndex(item => item.productId === productId);
       if (indexProductId >= 0) {
         state.cartItems[indexProductId].quantity += quantity;
       } else {
-        state.cartItems.push({ productId, quantity, price });
+        state.cartItems.push({ productId, quantity, price, author, publication_year, image_src });
       }
     },
     removeFromCart: (state, action) => {

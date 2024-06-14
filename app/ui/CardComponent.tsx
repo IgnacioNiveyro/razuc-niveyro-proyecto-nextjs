@@ -29,7 +29,10 @@ export function CardComponent({
     dispatch(addToCart({
       productId: title,
       quantity: quantity,
-      price: price
+      price: price,
+      author: author,
+      publication_year: publication_year,
+      image_src: image_src
     }));
   };
 
