@@ -1,11 +1,10 @@
-// app/ui/CardComponent.tsx
 'use client';
 
 import { Card, CardHeader, CardBody, Image, CardFooter, Button } from "@nextui-org/react";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/slices/cartSlice';
 import StarRating from '@/scripts/StarRating';
-import { useState } from 'react'; //
+import { useState } from 'react';
 
 export function CardComponent({
   title,
@@ -22,26 +21,27 @@ export function CardComponent({
   image_src: string;
   ranking: number;
 }) {
-
-  const [quantity,setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-  const handleAddToCart = () =>{
-      dispatch(addToCart({
-          productId: title,
-          quantity: quantity,
-          price: price
-      }));
-  }
 
-  const handleMinusQuantity = () =>{
-    if(quantity > 1){
-      setQuantity(quantity - 1 < 1 ? 1 : quantity -1);
+  const handleAddToCart = () => {
+    console.log('handleAddToCart called');
+    dispatch(addToCart({
+      productId: title,
+      quantity: quantity,
+      price: price
+    }));
+  };
+
+  const handleMinusQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
     }
-  }
+  };
 
-  const handlePlusQuantity = () =>{
+  const handlePlusQuantity = () => {
     setQuantity(quantity + 1);
-  }
+  };
 
   return (
     <Card className={`py-4 custom-div`}>
@@ -72,9 +72,9 @@ export function CardComponent({
           />
         </Button>
         <p className="text-tiny text-black/80">{price}</p>
-        <Button className="text-tiny text-black/80" onClick = {handleMinusQuantity}>-</Button>
+        <Button className="text-tiny text-black/80" onClick={handleMinusQuantity}>-</Button>
         <span className="text-tiny text-black">{quantity}</span>
-        <Button className="text-tiny text-black/80" onClick = {handlePlusQuantity}>+</Button>
+        <Button className="text-tiny text-black/80" onClick={handlePlusQuantity}>+</Button>
       </CardFooter>
     </Card>
   );
