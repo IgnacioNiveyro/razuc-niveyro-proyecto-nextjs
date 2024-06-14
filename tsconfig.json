@@ -28,6 +28,6 @@
     ".next/types/**/*.ts",
     "app/lib/book-data.js",
     "scripts/seed.js"
-  ],
+, "app/api/checkout/route.js"  ],
   "exclude": ["node_modules"]
 }
