@@ -3,11 +3,9 @@
 import { useSelector } from 'react-redux';
 import BookCard from '@/app/ui/bookCard';
 import { Button, Image } from "@nextui-org/react";
-import { useRouter } from 'next/navigation';
 
 const CartPage = () => {
   const cartItems = useSelector((state: any) => state.cart.cartItems);
-  const router = useRouter();
 
   const calculateTotal = () => {
     return cartItems.reduce((total: number, item: any) => {
@@ -44,7 +42,7 @@ const CartPage = () => {
           cartItems.map((item: any) => (
             <div key={item.productId} className="w-full max-w-4xl">
               <BookCard
-                title={item.title}
+                title={item.productId}
                 author={item.author}
                 publication_year={item.publication_year}
                 price={item.price}

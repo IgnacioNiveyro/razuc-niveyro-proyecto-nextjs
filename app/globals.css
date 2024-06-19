@@ -136,3 +136,11 @@
   .h-32 {
     height: 8rem;
   }
+
+.underline-custom {
+  text-decoration: underline;
+  text-decoration-color: black; 
+  text-decoration-thickness: 2px; 
+  text-underline-offset: 8px; 
+}
+
