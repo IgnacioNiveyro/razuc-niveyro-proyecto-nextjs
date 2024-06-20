@@ -22,6 +22,7 @@ export function CardComponent({
   ranking: number;
 }) {
   const [quantity, setQuantity] = useState(1);
+  const [popups, setPopups] = useState<number[]>([]);
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -34,6 +35,12 @@ export function CardComponent({
       publication_year: publication_year,
       image_src: image_src
     }));
+
+    const newPopupId = Date.now();
+    setPopups([...popups, newPopupId]);
+    setTimeout(() => {
+      setPopups((currentPopups) => currentPopups.filter(id => id !== newPopupId));
+    }, 3000); // Popup se oculta después de 3 segundos
   };
 
   const handleMinusQuantity = () => {
@@ -47,38 +54,47 @@ export function CardComponent({
   };
 
   return (
-    <Card className={`py-4 custom-div`}>
-      <CardHeader className="flex flex-col items-center justify-center text-center py-2 px-4">
-        <h4 className="text-medium uppercase font-bold">{title}</h4>
-        <small className="text-default-500">{publication_year}</small>
-      </CardHeader>
-      <CardBody className="overflow-visible items-center">
-        <Image
-          alt={"image of " + title}
-          className="object-contain rounded-x"
-          src={image_src}
-          width={160}
-          height={220}
-          style={{ width: '160px', height: '220px', objectFit: 'contain' }}
-        />
-        <StarRating rating={ranking} />
-        <span className="ml-2 text-sm font-medium text-black-500">{ranking.toFixed(1)}</span>
-      </CardBody>
-      <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-        <Button onClick={handleAddToCart}>
+    <div>
+      <Card className={`py-4 custom-div`}>
+        <CardHeader className="flex flex-col items-center justify-center text-center py-2 px-4">
+          <h4 className="text-medium uppercase font-bold">{title}</h4>
+          <small className="text-default-500">{publication_year}</small>
+        </CardHeader>
+        <CardBody className="overflow-visible items-center">
           <Image
-            alt="Add To Cart"
-            src="/cart.png"
-            width={24}
-            height={24}
-            style={{ objectFit: 'contain', borderRadius: '0' }}
+            alt={"image of " + title}
+            className="object-contain rounded-x"
+            src={image_src}
+            width={160}
+            height={220}
+            style={{ width: '160px', height: '220px', objectFit: 'contain' }}
           />
-        </Button>
-        <p className="text-tiny text-black/80">{price}</p>
-        <Button className="text-tiny text-black/80" onClick={handleMinusQuantity}>-</Button>
-        <span className="text-tiny text-black">{quantity}</span>
-        <Button className="text-tiny text-black/80" onClick={handlePlusQuantity}>+</Button>
-      </CardFooter>
-    </Card>
+          <StarRating rating={ranking} />
+          <span className="ml-2 text-sm font-medium text-black-500">{ranking.toFixed(1)}</span>
+        </CardBody>
+        <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+          <Button onClick={handleAddToCart}>
+            <Image
+              alt="Add To Cart"
+              src="/add_to_cart.png"
+              width={96}
+              height={96}
+              style={{ objectFit: 'contain', borderRadius: '0' }}
+            />
+          </Button>
+          <p className="text-medium font-Roboto_Slab text-black">${price}</p>
+          <Button className="text-big font-Roboto_Slab font-bold text-black" onClick={handleMinusQuantity}>-</Button>
+          <span className="text-medium font-Roboto_Slab text-black">{quantity}</span>
+          <Button className="text-big font-Roboto_Slab font-bold text-black" onClick={handlePlusQuantity}>+</Button>
+        </CardFooter>
+      </Card>
+      <div className="fixed top-4 right-4 flex flex-col space-y-2 z-50">
+        {popups.map(id => (
+          <div key={id} className="bg-white p-4 rounded-lg shadow-lg">
+            <p className="text-black font-bold">Agregado exitosamente al carrito</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

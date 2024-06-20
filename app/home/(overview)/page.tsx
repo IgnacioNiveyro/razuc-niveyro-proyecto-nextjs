@@ -21,7 +21,7 @@ export default async function Page({
     return (
         <div>
             <Suspense fallback={<EmblaSkeleton />}>
-                <h2 className="text-center text-2xl font-Roboto_Slab pt-4 underline-custom">Books arriving next week</h2>
+                <h2 className="text-center text-2xl font-Roboto_Slab underline-custom">Books arriving next week</h2>
                 <EmblaCarouselWrap />
             </Suspense>
             <Suspense fallback={<CardsSkeleton />}>
