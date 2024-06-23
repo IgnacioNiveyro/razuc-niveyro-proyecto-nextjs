@@ -67,9 +67,6 @@ export async function fetchFilteredBooks(
     ORDER BY publication_year DESC
     LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     `;
-    console.log('Tiempo hardcodeado para ver animación');
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log('Fetching premiere books..');
     return data.rows;
   } catch (error) {
     console.log('Database Error: ', error);
@@ -102,9 +99,6 @@ export async function fetchPremiereBooks() {
   noStore();
   try {
     const data = await sql<premiereBook>`SELECT * FROM library.PremiereBooks`
-    console.log('Tiempo hardcodeado para ver animación');
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log('Fetching premiere books..');
     return data.rows;
   } catch (error) {
     console.log('Database Error: ', error);

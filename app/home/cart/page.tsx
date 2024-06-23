@@ -35,7 +35,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="cart-page">
+    <div className="cart-page bg-[#F8F4E1]">
       <h1 className="text-center font-medium text-3xl mb-10 pt-6">Shopping Cart</h1>
       <div className="flex flex-col items-center space-y-2">
         {cartItems.length > 0 ? (

@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ height: '100%' }}>
       <body className={`bg-[#F8F4E1] ${robotoSlab.className} antialiased`}>
         <StoreProvider>
         {children}

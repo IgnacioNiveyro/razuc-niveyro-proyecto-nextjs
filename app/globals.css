@@ -10,6 +10,11 @@
     background-color: #ddd8be;
   }
 
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
   .embla {
     --slide-spacing: 0.5rem; /* Reducir espaciado entre slides */
     box-sizing: border-box;

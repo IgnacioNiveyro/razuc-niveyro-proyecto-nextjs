@@ -19,7 +19,7 @@ export default async function Page({
     const totalPages = await fetchBooksPage(query);
 
     return (
-        <div>
+        <div className='bg-[#F8F4E1]'>
             <Suspense fallback={<EmblaSkeleton />}>
                 <h2 className="text-center text-2xl font-Roboto_Slab underline-custom">Books arriving next week</h2>
                 <EmblaCarouselWrap />

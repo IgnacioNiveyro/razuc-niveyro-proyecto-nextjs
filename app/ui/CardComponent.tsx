@@ -72,14 +72,15 @@ export function CardComponent({
           <StarRating rating={ranking} />
           <span className="ml-2 text-sm font-medium text-black-500">{ranking.toFixed(1)}</span>
         </CardBody>
-        <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-          <Button onClick={handleAddToCart}>
+        <CardFooter className="p-0 justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+          <Button className="p-0" onClick={handleAddToCart}>
             <Image
               alt="Add To Cart"
+              className="object-contain rounded-x"
               src="/add_to_cart.png"
               width={96}
               height={96}
-              style={{ objectFit: 'contain', borderRadius: '0' }}
+              style={{ width: '96px', height: '96px',objectFit: 'contain', borderRadius: '0' }}
             />
           </Button>
           <p className="text-medium font-Roboto_Slab text-black">${price}</p>
