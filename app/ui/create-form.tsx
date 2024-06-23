@@ -169,6 +169,7 @@ export default function Form({books}:{books: Book[]}) {
               id="ranking"
               name="ranking"
               type="number"
+              step="0.01"
               placeholder="Enter Star rating"
               className="peer block w-full rounded-md border border-black py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               aria-describedby="ranking-error"

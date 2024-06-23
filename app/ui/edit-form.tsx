@@ -85,7 +85,7 @@ export default function EditBookForm({
         >
           Cancel
         </Link>
-        <Button type="submit">Edit Invoice</Button>
+        <Button type="submit">Edit Book</Button>
       </div>
     </form>
   );
