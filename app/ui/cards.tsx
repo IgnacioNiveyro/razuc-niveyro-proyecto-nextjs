@@ -47,7 +47,7 @@ export default async function CardWrapper({
     
   
   return (
-    <div className="flex justify-center">
+    <div className="mx-12">
       <div className="grid gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
       
       {
@@ -72,7 +72,7 @@ export default async function CardWrapper({
         ))
       }
       </div>
-    </div>
+      </div>
   );
 }
 
