@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Confetti from 'react-confetti';
 
@@ -8,7 +9,14 @@ export default function Page() {
   const cardContainerColor = "#ddbea9"; // Fondo del contenedor de las tarjetas
   const cardColor = "#ffe8d6"; // Fondo de las tarjetas
 
-  const [width, height] = [window.innerWidth, window.innerHeight];
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+
+  // Usar useEffect para acceder a 'window' solo en el cliente
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }, []);
 
   return (
     <div
@@ -22,7 +30,7 @@ export default function Page() {
         <h1 className="text-4xl font-bold text-black mb-6">
           🎉 Welcome to Our Project 🎉
         </h1>
-        <Confetti width={width} height={height} recycle={false} />
+        {width && height && <Confetti width={width} height={height} recycle={false} />}
         <p className="text-lg text-black mb-8">
           This web application is an university project, developed using modern technologies to provide an optimal user experience.
         </p>
@@ -80,15 +88,15 @@ export default function Page() {
 
           {/* Nueva card con enlace */}
           <div
-  className="text-black p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
-  style={{ backgroundColor: cardColor }}
->
-  <Link href="/home">
-    <div className="flex flex-col items-center justify-center h-full text-center cursor-pointer">
-      <h2 className="text-2xl font-semibold text-black mb-4">Back to the page</h2>
-    </div>
-  </Link>
-</div>
+            className="text-black p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+            style={{ backgroundColor: cardColor }}
+          >
+            <Link href="/home">
+              <div className="flex flex-col items-center justify-center h-full text-center cursor-pointer">
+                <h2 className="text-2xl font-semibold text-black mb-4">Back to the page</h2>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
