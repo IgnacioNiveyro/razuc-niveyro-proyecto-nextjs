@@ -19,7 +19,7 @@ export const authConfig = {
     },
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      const isOnHome = nextUrl.pathname.startsWith('/home');
+      const isOnHome = nextUrl.pathname.startsWith('/home') || nextUrl.pathname.startsWith('/about');
 
       const adminRoutes = 
         nextUrl.pathname.startsWith('/home/create') || 

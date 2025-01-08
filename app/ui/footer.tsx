@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link'; // Asegúrate de usar el import correcto según el framework que estés utilizando.
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -7,8 +7,8 @@ export default function Footer() {
     <div className="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
         <nav className="flex flex-wrap justify-center -mx-5 -my-2">
             <div className="px-5 py-2">
-                <Link href="#" className="text-base leading-6 text-black hover:text-gray-900">
-                    About us
+                <Link href="/about/aboutThisPage" className="text-base leading-6 text-black hover:text-gray-900">
+                    About this web aplication.
                 </Link>
             </div>
         </nav>
