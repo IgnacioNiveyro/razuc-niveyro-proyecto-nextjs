@@ -8,7 +8,7 @@ export default function Footer() {
         <nav className="flex flex-wrap justify-center -mx-5 -my-2">
             <div className="px-5 py-2">
                 <Link href="/about/aboutThisPage" className="text-base leading-6 text-black hover:text-gray-900">
-                    About this web aplication.
+                    About this page.
                 </Link>
             </div>
         </nav>
